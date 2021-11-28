@@ -5,75 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="0.9"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/TextView_get"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="24sp"
-        android:text="LOGIN"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@null"
-        android:src="@drawable/icon_present"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:hint="Email"
-        android:layout_height="50dp"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:hint="Password"
-        android:layout_height="50dp"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Login"/>
+        android:text="1"
+        android:textSize="20sp"
+        android:layout_weight="0.1"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="OR"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Login"/>
-
-    <LinearLayout
+        android:text="2"
+        android:textSize="20sp"
+        android:layout_weight="0.7"/>
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="10">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="5"
-            android:textSize="24sp"
-            android:text="Find Password"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="5"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="24sp"
-            android:text="Sign Up"/>
-
-    </LinearLayout>
+        android:text="3"
+        android:textSize="20sp"
+        android:layout_weight="0.1"/>
 
 </LinearLayout>
