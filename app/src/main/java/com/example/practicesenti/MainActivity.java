@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -15,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
 
     TextInputEditText TextInputEditText_email, TextInputEditText_password;
     RelativeLayout RelativeLayout_login;
+    String emailOK = "123@gmail.com";
+    String passwordOK = "1234";
+
+    String inputEmail = "";
+    String inputPassword = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +33,57 @@ public class MainActivity extends AppCompatActivity {
         TextInputEditText_password  = findViewById(R.id.TextInputEditText_password);
         RelativeLayout_login        = findViewById(R.id.RelativeLayout_login);
 
-        //1. 값을 가져온다
+        //1. 값을 가져온다 - 검사 (123@gmail.com / 1234)
         //2. 클릭을 감지한다.
         //3. 1번의 값을 다음 액티비티로 넘긴다.
 
-        RelativeLayout_login.setClickable(true);
+        RelativeLayout_login.setEnabled(false);
+        TextInputEditText_email.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(s != null) {
+                    Log.d("SENTI",s.toString());
+                    inputEmail = s.toString();
+                    RelativeLayout_login.setEnabled(validation());
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        TextInputEditText_password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(s != null) {
+                    Log.d("SENTI",s.toString());
+                    inputPassword = s.toString();
+                    RelativeLayout_login.setEnabled(validation());
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+//        RelativeLayout_login.setClickable(true);
         RelativeLayout_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,5 +96,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public boolean validation() {
+        return inputEmail.equals(emailOK) && inputPassword.equals(passwordOK);
     }
 }
